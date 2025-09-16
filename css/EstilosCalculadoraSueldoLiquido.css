@@ -16,10 +16,12 @@ header{
 .botones{
     display: flex;
     flex-direction: row;
+
 }
 
 .persona{
     color: rgb(69, 12, 56);
+    background-color: fuchsia;
 }
 
 body{
