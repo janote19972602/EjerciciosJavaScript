@@ -39,16 +39,17 @@ function calcularSueldoLiquido() {
     //Operaciones para calcular los descuentos de AFP y de Salud
     //realizar el calculo de los porcentajes
 
-    let afp = sueldoBrutoTrabajador *
+    let descuentoAFP = (sueldoBrutoTrabajador * afpTrabajador) / 100;
+    let descuentoSalud = (sueldoBrutoTrabajador * descuentosSaludTrabajador) / 100;
 
     //Operacion para calcular el sueldo líquido
-    let sueldoLiquido = sueldoBrutoTrabajador - descuentosAFP - descuentosSalud;
+    let sueldoLiquido = sueldoBrutoTrabajador - descuentoAFP - descuentoSalud;
     
     //Mensajes
     let mensaje = `Empleado/a: ${nombreTrabajador}
     Bruto: ${sueldoBrutoTrabajador.toLocaleString('es-CL')}
-    AFP: ${descuentosAFP.toLocaleString('es-CL')}
-    Salud: ${descuentosSalud.toLocaleString('es-CL')}
+    AFP: ${descuentoAFP.toLocaleString('es-CL')}
+    Salud: ${descuentoSalud.toLocaleString('es-CL')}
     Sueldo líquido aproximado: ${sueldoLiquido.toLocaleString('es-CL')}`;
 
     //Se devuelve la respuesta
@@ -65,11 +66,11 @@ function sueldoInferior() {
     let descuentosSaludTrabajador = obtenerDescuentoDeSaludDelTrabajador();
 
     //Operaciones para calcular los descuentos de AFP y de Salud
-    let descuentosAFP = (sueldoBrutoTrabajador * (afpTrabajador / 100));
-    let descuentosSalud = (sueldoBrutoTrabajador * (descuentosSaludTrabajador/100));
+    let descuentoAFP = (sueldoBrutoTrabajador * afpTrabajador) / 100;
+    let descuentoSalud = (sueldoBrutoTrabajador * descuentosSaludTrabajador) / 100;
 
     //Operacion para calcular el sueldo líquido
-    let sueldoLiquido = sueldoBrutoTrabajador - descuentosAFP - descuentosSalud;
+    let sueldoLiquido = sueldoBrutoTrabajador - descuentoAFP - descuentoSalud;
 
          //Condición de sueldo inferior a 500mil, mostrar mensaje
     if (sueldoLiquido <= 500000 ) {
@@ -78,25 +79,6 @@ function sueldoInferior() {
         p.style.backgroundColor = "white";
     }
 }
-
-// function valorMonetario() {
-
-//     let p = obtenerP();
-//     let sueldoBrutoTrabajador = obtenerSueldoBrutoDelTrabajador();
-//     let afpTrabajador = obtenerAFPDelTrabajador();
-//     let descuentosSaludTrabajador = obtenerDescuentoDeSaludDelTrabajador();
-
-//     //Operaciones para calcular los descuentos de AFP y de Salud
-//     let descuentosAFP = (sueldoBrutoTrabajador * (afpTrabajador / 100));
-//     let descuentosSalud = (sueldoBrutoTrabajador * (descuentosSaludTrabajador/100));
-
-//     //Operacion para calcular el sueldo líquido
-//     let sueldoLiquido = sueldoBrutoTrabajador - descuentosAFP - descuentosSalud;
-//     let formato = sueldoLiquido.toLocaleString('es-CL');
-//     p.textContent = formato;
-// }
-
-
 
 function obtenerNombreDelTrabajador() {
 
