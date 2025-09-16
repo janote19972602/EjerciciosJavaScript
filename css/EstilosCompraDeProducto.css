@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+header{
+    height: 200px;
+    background-color: rgb(149, 215, 241);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.persona{
+    color: rgb(69, 12, 56);
+}
+
+body{
+    background-color: burlywood;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin: 0 auto;
+    width: 80%;
+    margin-top: 50px;
+    gap: 70px;
+}
+
+.container .item{
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+}
+
+.datos{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    text-align: left;
+}
+
+.datos .inputs{
+    font-size: 20px;
+    border: none;
+    border-radius: 6px;
+}
+
+.enviar{
+    padding: 15px 23px;
+    background-color:rgb(54, 83, 163);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 150px;
+    margin-top: 20px;
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.compraDeProducto{
+    padding: 15px 23px;
+    background-color:rgb(22, 117, 79);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 150px;
+    margin-left: 50px;
+}
+
+.btn-volver{
+    padding: 15px 23px;
+    background-color:rgb(22, 47, 117);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 150px;
+    margin-right: 600px;
+}
+
+.datos p{
+    font-size: 20px;
+}
+
+.resultado{
+    font-size: 20px;
+}
+
+
+

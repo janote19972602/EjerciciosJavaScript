@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página web</title>
+    <link rel="stylesheet" href="../css/EstilosPersonaMayor.css">
+    <script type="module" src="../js/apiPersona.js"></script>
+</head>
+<body>
+    <!-- ***********************************************INICIO DEL <HEADER>**********************************************   -->
+    <header>
+        <h1 class="persona">Ejercicios de Java Script</h1>
+    </header>
+<!-- ***************************************************TERMINO DEL <HEADER>**********************************************   -->
+
+    <!-- ***********************************************INICIO DEL <MAIN>**********************************************   -->
+    <main>  
+        <div class="container">
+           <div class="item">
+                <h3>Datos de la persona</h3>
+                <div class="datos">
+                    <div class="primerDato">
+                        <p>Nombre</p>
+                        <input class="inputs" id="inputNombre" type="text">
+                    </div>
+                    <div class="segundo">
+                        <p>Edad</p>
+                        <input class="inputs" id="inputEdad" type="text">
+                    </div>
+                </div>
+                <div class="resultados">
+                    <div class="parteUno">
+                        <h2 id="resultadosEdadPersona"></h2>
+                        <p id="colorDeNombreIngresadoPorEdad"></p>
+                    </div>
+
+                    <div>
+                        <ol id="historial"></ol>
+                    </div>
+
+                    <div class="parteDos">
+                        <!-- <button id="btnEnviarDatosDePersona" class="enviar">Enviar</button>  -->
+                        <button id="btnVerificarOptimizado" class="enviar">Verificar optimizado</button>
+                        <button id="btnCambioDeColor" class="enviar">Cambiar color texto</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+<!-- ***************************************************TERMINO DEL <MAIN>**********************************************   -->
+
+<!-- ***************************************************INICIO DEL <FOOTER>**********************************************   -->
+    <footer>
+        <div class="atras">
+            <a href="../index.html" class="btn-volver">Volver</a>
+        </div>
+    </footer>
+<!-- ***********************************************FIN DEL FOOTER************************-->
+     <!-- CONTROL + K + CONTROL + C = COMENTAR CODIGO -->
+</body>
+</html>

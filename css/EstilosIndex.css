@@ -1,0 +1,89 @@
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+
+header{
+    height: 250px;
+    background-color: rgb(72, 72, 219);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header .logo-montaña{
+    width:100px;
+    height: 100px;
+}
+
+header .logo-estrella{
+    width: 100px;
+    height: 100px;
+}
+
+
+
+header .menu-info {
+    text-align: center;
+}
+
+header .menu-info h3{
+    font-size: 40px;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+header .menu-info .menu-header a{
+    text-decoration: none;
+    color: #fff;
+}
+
+header .menu-info .menu-header li:hover{
+    transform: scale(1.1);
+}
+
+.menu-header{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    font-size: 20px;
+}
+
+
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 80%;
+    
+}
+
+.primerItem{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+
+
+.container .primerItem img{
+    object-fit: scale-down;
+    height: 50%;
+    width: 49%;
+    border-radius: 25px;
+}
+
+
+
+
+footer{
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
