@@ -25,11 +25,15 @@ header{
 }
 
 body{
-    background-color: rgb(205, 231, 190);
+    background-color: rgb(135, 193, 102);
 }
 
 .titulo{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+
+
+    
 }
 
 .container{
