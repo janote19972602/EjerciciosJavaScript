@@ -17,26 +17,54 @@ window.onload = function () {
 
     btnCalculoDeFinanzas.addEventListener('click', function () {
 
-        let valorAlimentacion = alimentacion.value;
-        let valorTransporte = transporte.value;
-        let valorArriendo = arriendo.value;
-        let valorOcio = ocio.value;
+        //Obtener valores de los inputs
+        let nombreUsuario = obtenerNombreDelUsuario();
+        let sueldoMensual = obtenerSueldoMensualDelTrabajador();
+        let gastoAlimentacion = obtenerGastosEnAlimentacion();
+        let gastoTransporte = obtenerGastosEnTransporte();
+        let gastoArriendo = obtenerGastosEnArriendo();
+        let gastoOcio = obtenerGastosEnOcio();
 
-        let nuevosValores = [valorAlimentacion]
-
-        valoresIngresados.push(valorAlimentacion);
-        valoresIngresados.push(valorTransporte);
-        valoresIngresados.push(valorArriendo);
-        valoresIngresados.push(valorOcio);
+        //Agregar a un arreglo solamente los gastos   
+        valoresIngresados.push(gastoAlimentacion);
+        valoresIngresados.push(gastoTransporte);
+        valoresIngresados.push(gastoArriendo);
+        valoresIngresados.push(gastoOcio);
 
         console.log(valoresIngresados);
+
+        //Se puede declarar un arreglo con valores dentro:
+        let arreglo = [1, 3, 5, 2];
+
+        //Se puede acceder a un elemento por su indice:
+        let segundoElemento = arreglo[1];
+        console.log('elemento:' + segundoElemento);
+
+        //Un ciclo FOR permite recorrer un arreglo desde el primer elemento
+        //hasta el último
+        for (let indice = 0; indice < arreglo.length; indice++) {
+
+            //Declaro una variable que va ir guardando los elementos del arreglo
+            //por su índice, que en este caso es la variable i
+            let elemento = arreglo[indice];
+            // console.log(elemento);
+        }
+
+        //Como sumar los elementos de un arreglo.
+        //Se debe declarar una variable que vaya guardando la suma de los elementos
+
+        let suma = 0;
+        for (let indice = 0; indice < arreglo.length; indice++) {
+
+            //sumar cada elemento del arreglo a la variable que va guardando la suma
+            suma = suma + arreglo[indice]; 
+            console.log(suma);                      
+            
+        };
+
+        //Cuando termine el FOR, la variable suma tendra la suma total de los elementos
+        console.log('La suma total de los elementos es ' + suma);    
         
-
-
-
-        
-   
-       
 
 
         
@@ -80,41 +108,41 @@ function obtenerSueldoMensualDelTrabajador() {
     
 }
 
-// function obtenerGastosEnAlimentacion() {
+function obtenerGastosEnAlimentacion() {
 
-//     //Se guarda el nombre ingresado a traves del input "gastos alimentacion"
-//     //y que se buscó por ID
-//     let gastosAlimentacion = parseFloat(document.getElementById('gastosEnAlimentacion').value);
-//     return gastosAlimentacion;
+    //Se guarda el nombre ingresado a traves del input "gastos alimentacion"
+    //y que se buscó por ID
+    let gastosAlimentacion = parseFloat(document.getElementById('gastosEnAlimentacion').value);
+    return gastosAlimentacion;
     
-// }
+}
 
-// function obtenerGastosEnTransporte() {
+function obtenerGastosEnTransporte() {
 
-//     //Se guarda el nombre ingresado a traves del input "gastos transporte"
-//     //y que se buscó por ID
-//     let gastosTransporte = parseFloat(document.getElementById('gastosEnTransporte').value);
-//     return gastosTransporte;
+    //Se guarda el nombre ingresado a traves del input "gastos transporte"
+    //y que se buscó por ID
+    let gastosTransporte = parseFloat(document.getElementById('gastosEnTransporte').value);
+    return gastosTransporte;
     
-// }
+}
 
-// function obtenerGastosEnArriendo() {
+function obtenerGastosEnArriendo() {
 
-//     //Se guarda el nombre ingresado a traves del input "gastos arriendo"
-//     //y que se buscó por ID
-//     let gastosArriendo = parseFloat(document.getElementById('gastosEnArriendo').value);
-//     return gastosArriendo;
+    //Se guarda el nombre ingresado a traves del input "gastos arriendo"
+    //y que se buscó por ID
+    let gastosArriendo = parseFloat(document.getElementById('gastosEnArriendo').value);
+    return gastosArriendo;
     
-// }
+}
 
-// function obtenerGastosEnOcio() {
+function obtenerGastosEnOcio() {
 
-//     //Se guarda el nombre ingresado a traves del input "gastos ocio"
-//     //y que se buscó por ID
-//     let gastosOcio = parseFloat(document.getElementById('gastosEnOcio').value);
-//     return gastosOcio;
+    //Se guarda el nombre ingresado a traves del input "gastos ocio"
+    //y que se buscó por ID
+    let gastosOcio = parseFloat(document.getElementById('gastosEnOcio').value);
+    return gastosOcio;
     
-// }
+}
 
 function obtenerDiv() {
 
