@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página web</title>
+    <link rel="stylesheet" href="../css/EstilosCalculadoraSueldoLiquido.css">
+    <script type="module" src="../js/calculadoraSueldoLiquido.js"></script>
+</head>
+<body>
+    <!-- ***********************************************INICIO DEL <HEADER>**********************************************   -->
+    <header>
+        <h1 class="persona">Calculadora de Sueldo líquido</h1>
+    </header>
+<!-- ***************************************************TERMINO DEL <HEADER>**********************************************   -->
+
+    <!-- ***********************************************INICIO DEL <MAIN>**********************************************   -->
+    <main>  
+
+          <div class="container">
+            <div class="item">
+                <h2 class="titulo">Sueldo líquido</h2>
+                <div class="datos">
+                    <div>
+                        <p>Nombre del trabajador:</p>
+                        <input class="inputs" id="nombreDelTrabajador" type="text" placeholder="Nombre"> 
+                    </div>
+                    <div>
+                        <p>Sueldo bruto:</p>
+                        <input class="inputs" id="sueldoBruto" type="text" placeholder="Sueldo">
+                    </div>
+                    <div>
+                        <p>Descuento AFP:</p>
+                        <input class="inputs" id="descuentosAFP" type="text" placeholder="AFP">
+                    </div>
+                    <div>
+                        <p>Descuento Salud:</p>
+                        <input class="inputs" id="descuentosSalud" type="text" placeholder="Salud">
+                    </div>
+                </div>
+                
+                <div>
+                    <p class="resultado" id="resultadoSueldoLiquido"></p>
+                </div>
+                <div class="botones">
+                    <button class="sueldoLiquido" id="btnAgregarSueldo">Calcular sueldo líquido</button>
+                    <button class="sueldoLiquido" id="boton-refrescar">Refrescar Página</button>
+                </div>
+            </div>
+            
+        </div>
+      
+    </main>
+<!-- ***************************************************TERMINO DEL <MAIN>**********************************************   -->
+
+<!-- ***************************************************INICIO DEL <FOOTER>**********************************************   -->
+    <footer>
+        <div class="atras">
+            <a href="../index.html" class="btn-volver">Volver</a>
+        </div>
+    </footer>
+<!-- ***********************************************FIN DEL FOOTER************************-->
+     <!-- CONTROL + K + CONTROL + C = COMENTAR CODIGO -->
+</body>
+</html>
