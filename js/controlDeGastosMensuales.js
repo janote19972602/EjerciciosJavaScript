@@ -2,18 +2,48 @@ window.onload = function () {
 
     //buscar btn por su id
     let btnCalculoDeFinanzas = document.getElementById('btnCalcularFinanzas');
-    console.log("hola");
+    let saldoFinal = document.getElementById('btnCalcularSueldoFinal');
+    let btnResfrescar = document.getElementById('boton-refrescar');
 
-
-    // inputs por id
-    let alimentacion = document.getElementById('sueldoMensual');
-    let transporte = document.getElementById('gastosEnTransporte');
-    let arriendo = document.getElementById('gastosEnArriendo');
-    let ocio = (document.getElementById('gastosEnOcio'));
+    //Refreca la página web
+    btnResfrescar.addEventListener('click', function() {
+        
+        location.reload();
+    })
 
     // aqui se guardaran los valores
     let valoresIngresados = [];
 
+    saldoFinal.addEventListener('click',function () {
+
+        obtenerSaldoFinal();
+     
+    })
+
+    function obtenerSaldoFinal() {
+
+        let nombre = obtenerNombreDelUsuario();
+        let sueldoMensual = obtenerSueldoMensualDelTrabajador();
+        let gastoAlimentacion = obtenerGastosEnAlimentacion();
+        let gastoTransporte = obtenerGastosEnTransporte();
+        let gastoArriendo = obtenerGastosEnArriendo();
+        let gastoOcio = obtenerGastosEnOcio();
+        let sueldoFinal = sueldoMensual - (gastoAlimentacion + gastoArriendo + gastoOcio + gastoTransporte);
+
+        let div = obtenerDiv();
+        div.textContent = `hola ${nombre} el sueldo final es ${sueldoFinal}`;
+
+        let cien = 100000;
+
+        if (sueldoFinal >= 0 ) {
+            div.textContent = `!Bien hecho, ${nombre}! Te sobran ${sueldoFinal.toLocaleString('es-CL')} este mes`;
+        }else if (sueldoFinal <= 0){
+            div.textContent = `Cuidado, ${nombre}. Estas sobregastando por ${sueldoMensual} `;
+        }else if (sueldoFinal <= 0 && sueldoFinal == cien) {
+            div.textContent = `Atención: Tu sueldo es muy bajo`;
+        }
+        
+    }
 
     btnCalculoDeFinanzas.addEventListener('click', function () {
 
@@ -31,39 +61,52 @@ window.onload = function () {
         valoresIngresados.push(gastoArriendo);
         valoresIngresados.push(gastoOcio);
 
-        console.log(valoresIngresados);
+        let saldoFinal = sueldoMensual - (gastoAlimentacion + gastoArriendo + gastoOcio + gastoTransporte);
 
-        //Se puede declarar un arreglo con valores dentro:
-        let arreglo = [1, 3, 5, 2];
+        let div = obtenerDiv();
 
-        //Se puede acceder a un elemento por su indice:
-        let segundoElemento = arreglo[1];
-        console.log('elemento:' + segundoElemento);
+        div.textContent = `Resumen financiero de ${nombreUsuario}:
+        Sueldo Mensual: ${sueldoMensual.toLocaleString('es-CL')}
+        -Total de gastos: ${valoresIngresados.toLocaleString('es-CL')}
+        -Saldo final: ${saldoFinal.toLocaleString('es-CL')}`;
 
-        //Un ciclo FOR permite recorrer un arreglo desde el primer elemento
-        //hasta el último
-        for (let indice = 0; indice < arreglo.length; indice++) {
+        
+        
 
-            //Declaro una variable que va ir guardando los elementos del arreglo
-            //por su índice, que en este caso es la variable i
-            let elemento = arreglo[indice];
-            // console.log(elemento);
-        }
+        
+        // console.log(valoresIngresados);
 
-        //Como sumar los elementos de un arreglo.
-        //Se debe declarar una variable que vaya guardando la suma de los elementos
+        // //Se puede declarar un arreglo con valores dentro:
+        // let arreglo = [1, 3, 5, 2];
 
-        let suma = 0;
-        for (let indice = 0; indice < arreglo.length; indice++) {
+        // //Se puede acceder a un elemento por su indice:
+        // let segundoElemento = arreglo[1];
+        // console.log('elemento:' + segundoElemento);
 
-            //sumar cada elemento del arreglo a la variable que va guardando la suma
-            suma = suma + arreglo[indice]; 
-            console.log(suma);                      
+        // //Un ciclo FOR permite recorrer un arreglo desde el primer elemento
+        // //hasta el último
+        // for (let indice = 0; indice < arreglo.length; indice++) {
+
+        //     //Declaro una variable que va ir guardando los elementos del arreglo
+        //     //por su índice, que en este caso es la variable i
+        //     let elemento = arreglo[indice];
+        //     // console.log(elemento);
+        // }
+
+        // //Como sumar los elementos de un arreglo.
+        // //Se debe declarar una variable que vaya guardando la suma de los elementos
+
+        // let suma = 0;
+        // for (let indice = 0; indice < arreglo.length; indice++) {
+
+        //     //sumar cada elemento del arreglo a la variable que va guardando la suma
+        //     suma = suma + arreglo[indice]; 
+        //     console.log(suma);                      
             
-        };
+        // };
 
-        //Cuando termine el FOR, la variable suma tendra la suma total de los elementos
-        console.log('La suma total de los elementos es ' + suma);    
+        // //Cuando termine el FOR, la variable suma tendra la suma total de los elementos
+        // console.log('La suma total de los elementos es ' + suma);    
         
 
 
@@ -72,6 +115,18 @@ window.onload = function () {
     
     
 }
+
+// function obtenerSaldoFinal() {
+
+//     let sueldoMensual = obtenerSueldoMensualDelTrabajador();
+
+//     let sueldoFinal = sueldoMensual - valoresIngresados;
+
+//     let div = obtenerDiv();
+//     div.textContent = `el sueldo final es ${sueldoFinal};`;
+    
+    
+// }
 
 
 

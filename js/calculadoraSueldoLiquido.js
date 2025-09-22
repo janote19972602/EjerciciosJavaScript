@@ -4,6 +4,7 @@ window.onload = function () {
     let btnAgregar = document.getElementById('btnAgregarSueldo');
     let btnResfrescar = document.getElementById('boton-refrescar');
 
+
     //función que calcula el sueldo líquido
     btnAgregar.addEventListener('click', function () {
         
