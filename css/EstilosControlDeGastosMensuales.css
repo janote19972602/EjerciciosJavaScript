@@ -111,6 +111,11 @@ footer{
     font-size: 20px;
 }
 
+.lista{
+    background-color: aquamarine;
+    font-family: sans-serif;
+}
+
 .boton{
     display: flex;
     justify-content: center;

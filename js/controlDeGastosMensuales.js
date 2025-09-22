@@ -2,7 +2,6 @@ window.onload = function () {
 
     //buscar btn por su id
     let btnCalculoDeFinanzas = document.getElementById('btnCalcularFinanzas');
-    let saldoFinal = document.getElementById('btnCalcularSueldoFinal');
     let btnResfrescar = document.getElementById('boton-refrescar');
 
     //Refreca la página web
@@ -11,17 +10,67 @@ window.onload = function () {
         location.reload();
     })
 
-    // aqui se guardaran los valores
-    let valoresIngresados = [];
+    btnCalculoDeFinanzas.addEventListener('click', function () {
 
-    saldoFinal.addEventListener('click',function () {
-
-        obtenerSaldoFinal();
-     
+        capturarGastosDelArreglo();
+        calcularValoresDelArreglo();
+        obtenerSaldoFinal();        
     })
+}
 
-    function obtenerSaldoFinal() {
+function capturarGastosDelArreglo() {
 
+        let div = obtenerDiv();
+        
+        //Obtener valores de los inputs
+        let nombreUsuario = obtenerNombreDelUsuario();
+        let sueldoMensual = obtenerSueldoMensualDelTrabajador();
+        
+        //ESTOS VALORES DE LOS GASTOS SON LOS QUE SERAN MOSTRADOS
+        //EN EL ARREGLO Y CADA GASTO SE SUMARA AL OTRO HASTA QUE
+        //TERMINE
+        let gastoAlimentacion = obtenerGastosEnAlimentacion();
+        let gastoTransporte = obtenerGastosEnTransporte();
+        let gastoArriendo = obtenerGastosEnArriendo();
+        let gastoOcio = obtenerGastosEnOcio();
+
+        // En este arreglo se guardaran los valores de los 4 inputs
+        let valoresIngresados = [];
+
+        //Agregar a un arreglo solamente los gastos   
+        valoresIngresados.push(gastoAlimentacion);
+        valoresIngresados.push(gastoTransporte);
+        valoresIngresados.push(gastoArriendo);
+        valoresIngresados.push(gastoOcio);
+
+        div.innerText = `El valor de los gastos es` + valoresIngresados;    
+        return valoresIngresados;
+}
+
+function calcularValoresDelArreglo(valoresIngresados) {
+
+        let div = obtenerDiv();
+        //Obtener valores de los inputs
+        let nombreUsuario = obtenerNombreDelUsuario();
+        let sueldoMensual = obtenerSueldoMensualDelTrabajador();
+
+        let totalGastos = 0;
+        //SUMAR LOS ELEMENTOS DEL ARREGLO, COMO YA TIENEN VALORES TRAS EL "PUSH" QUE SE LES HIZO SOLO FALTA SUMARLOS
+
+        for (let i = 0; i < valoresIngresados.length; i++) {
+            totalGastos = totalGastos + valoresIngresados[i];
+        }
+
+        div.textContent = `la suma de los valores del arreglo es ` + totalGastos.toLocaleString('es-CL');
+}
+
+function obtenerSaldoFinal() { 
+    //ESTA FUNCION ME TIENE DUDANDO PORQUE ENTRA AL IF DE LA LINEA 104 y no se DONDE OBTENER LOS VALORES INGRESADOS linea 114 EN LA
+    //CONSOLA ME SALE QUE NO ESTA DEFINIDA EN ESTA FUNCION PORQUE EN EL WORD DE REQUISITOS ME PIDEN QUE DEVUELVA 
+    //EN LA SECCION GASTOS, TODOS LOS GASTOS Y YA LO HAGO EN "Valores Ingresados" de otra funcion que calcula los valores del
+    //arreglo
+
+        let div = obtenerDiv();
         let nombre = obtenerNombreDelUsuario();
         let sueldoMensual = obtenerSueldoMensualDelTrabajador();
         let gastoAlimentacion = obtenerGastosEnAlimentacion();
@@ -30,7 +79,6 @@ window.onload = function () {
         let gastoOcio = obtenerGastosEnOcio();
         let sueldoFinal = sueldoMensual - (gastoAlimentacion + gastoArriendo + gastoOcio + gastoTransporte);
 
-        let div = obtenerDiv();
         div.textContent = `hola ${nombre} el sueldo final es ${sueldoFinal}`;
 
         let cien = 100000;
@@ -38,112 +86,33 @@ window.onload = function () {
         if (sueldoFinal >= 0 ) {
             div.textContent = `!Bien hecho, ${nombre}! Te sobran ${sueldoFinal.toLocaleString('es-CL')} este mes`;
         }else if (sueldoFinal <= 0){
-            div.textContent = `Cuidado, ${nombre}. Estas sobregastando por ${sueldoMensual} `;
+            div.textContent = `Cuidado, ${nombre}. Estas sobregastando por ${sueldoMensual.toLocaleString('es-CL')} `;
         }else if (sueldoFinal <= 0 && sueldoFinal == cien) {
             div.textContent = `Atención: Tu sueldo es muy bajo`;
         }
-        
-    }
 
-    btnCalculoDeFinanzas.addEventListener('click', function () {
-
-        //Obtener valores de los inputs
-        let nombreUsuario = obtenerNombreDelUsuario();
-        let sueldoMensual = obtenerSueldoMensualDelTrabajador();
-        let gastoAlimentacion = obtenerGastosEnAlimentacion();
-        let gastoTransporte = obtenerGastosEnTransporte();
-        let gastoArriendo = obtenerGastosEnArriendo();
-        let gastoOcio = obtenerGastosEnOcio();
-
-        //Agregar a un arreglo solamente los gastos   
-        valoresIngresados.push(gastoAlimentacion);
-        valoresIngresados.push(gastoTransporte);
-        valoresIngresados.push(gastoArriendo);
-        valoresIngresados.push(gastoOcio);
-
-        let saldoFinal = sueldoMensual - (gastoAlimentacion + gastoArriendo + gastoOcio + gastoTransporte);
-
-        let div = obtenerDiv();
-
-        div.textContent = `Resumen financiero de ${nombreUsuario}:
+        div.textContent = `Resumen financiero de ${nombre}:
         Sueldo Mensual: ${sueldoMensual.toLocaleString('es-CL')}
         -Total de gastos: ${valoresIngresados.toLocaleString('es-CL')}
-        -Saldo final: ${saldoFinal.toLocaleString('es-CL')}`;
-
-        
-        
-
-        
-        // console.log(valoresIngresados);
-
-        // //Se puede declarar un arreglo con valores dentro:
-        // let arreglo = [1, 3, 5, 2];
-
-        // //Se puede acceder a un elemento por su indice:
-        // let segundoElemento = arreglo[1];
-        // console.log('elemento:' + segundoElemento);
-
-        // //Un ciclo FOR permite recorrer un arreglo desde el primer elemento
-        // //hasta el último
-        // for (let indice = 0; indice < arreglo.length; indice++) {
-
-        //     //Declaro una variable que va ir guardando los elementos del arreglo
-        //     //por su índice, que en este caso es la variable i
-        //     let elemento = arreglo[indice];
-        //     // console.log(elemento);
-        // }
-
-        // //Como sumar los elementos de un arreglo.
-        // //Se debe declarar una variable que vaya guardando la suma de los elementos
-
-        // let suma = 0;
-        // for (let indice = 0; indice < arreglo.length; indice++) {
-
-        //     //sumar cada elemento del arreglo a la variable que va guardando la suma
-        //     suma = suma + arreglo[indice]; 
-        //     console.log(suma);                      
-            
-        // };
-
-        // //Cuando termine el FOR, la variable suma tendra la suma total de los elementos
-        // console.log('La suma total de los elementos es ' + suma);    
-        
+        -Saldo final: ${sueldoFinal.toLocaleString('es-CL')}`;
+    }
 
 
-        
-    })
+
+function listaDinamica(alimentacion,transporte,arriendo,ocio) {
+
+    //Se va a buscar por id <ul> (ul-dinamico)
+    let ul = document.getElementById('ul-dinamico');
+
+    //se crea una variable llamada li(que es lo que quiero crear)
+    let li = document.createElement('li');
+
     
+
     
 }
 
-// function obtenerSaldoFinal() {
 
-//     let sueldoMensual = obtenerSueldoMensualDelTrabajador();
-
-//     let sueldoFinal = sueldoMensual - valoresIngresados;
-
-//     let div = obtenerDiv();
-//     div.textContent = `el sueldo final es ${sueldoFinal};`;
-    
-    
-// }
-
-
-
-
-
-// function guardarValoresInputsNumericosEnUnArreglo() {
-
-//     let alimentacion = gastosAlimentacion;
-//     let transporte = obtenerGastosEnTransporte();
-//     let arriendo = obtenerGastosEnArriendo();
-//     let ocio = obtenerGastosEnOcio();
-
-
-
-//     let miArreglo = [];
-    
-// }
 
 function obtenerNombreDelUsuario() {
 

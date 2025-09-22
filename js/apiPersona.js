@@ -28,22 +28,6 @@ window.onload = function () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //pendiente: falta obtener el color de la categoria
 function crearHistorialUsuarios(nombre,edad,categoria) {
 
