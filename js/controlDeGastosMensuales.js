@@ -12,13 +12,17 @@ window.onload = function () {
 
     btnCalculoDeFinanzas.addEventListener('click', function () {
 
-        capturarGastosDelArreglo();
-        calcularValoresDelArreglo();
-        obtenerSaldoFinal();        
+        //Cuando las funciones retornan (devuelven) un valor, al llamarlas, se debe almacenar ese valor en una variable.
+        let arregloGastos = crearArregloGastosUsuario();
+
+        let totalGastos = calcularValoresDelArreglo(arregloGastos);
+
+        obtenerSaldoFinal(totalGastos);        
     })
 }
 
-function capturarGastosDelArreglo() {
+//Esta función crea un arreglo con los valores de los inputs de gastos de la página ControlDeGastosMensuales.html
+function crearArregloGastosUsuario() {
 
         let div = obtenerDiv();
         
@@ -62,39 +66,41 @@ function calcularValoresDelArreglo(valoresIngresados) {
         }
 
         div.textContent = `la suma de los valores del arreglo es ` + totalGastos.toLocaleString('es-CL');
+
+        return totalGastos;
 }
 
-function obtenerSaldoFinal() { 
+function obtenerSaldoFinal(totalGastos) { 
     //ESTA FUNCION ME TIENE DUDANDO PORQUE ENTRA AL IF DE LA LINEA 104 y no se DONDE OBTENER LOS VALORES INGRESADOS linea 114 EN LA
     //CONSOLA ME SALE QUE NO ESTA DEFINIDA EN ESTA FUNCION PORQUE EN EL WORD DE REQUISITOS ME PIDEN QUE DEVUELVA 
     //EN LA SECCION GASTOS, TODOS LOS GASTOS Y YA LO HAGO EN "Valores Ingresados" de otra funcion que calcula los valores del
     //arreglo
 
         let div = obtenerDiv();
-        let nombre = obtenerNombreDelUsuario();
+        // let nombre = obtenerNombreDelUsuario();
         let sueldoMensual = obtenerSueldoMensualDelTrabajador();
-        let gastoAlimentacion = obtenerGastosEnAlimentacion();
-        let gastoTransporte = obtenerGastosEnTransporte();
-        let gastoArriendo = obtenerGastosEnArriendo();
-        let gastoOcio = obtenerGastosEnOcio();
-        let sueldoFinal = sueldoMensual - (gastoAlimentacion + gastoArriendo + gastoOcio + gastoTransporte);
+        // let gastoAlimentacion = obtenerGastosEnAlimentacion();
+        // let gastoTransporte = obtenerGastosEnTransporte();
+        // let gastoArriendo = obtenerGastosEnArriendo();
+        // let gastoOcio = obtenerGastosEnOcio();
+        let saldoFinal = sueldoMensual - totalGastos;
 
-        div.textContent = `hola ${nombre} el sueldo final es ${sueldoFinal}`;
+        div.textContent = `hola ${nombre} el sueldo final es ${saldoFinal}`;
 
         let cien = 100000;
 
-        if (sueldoFinal >= 0 ) {
-            div.textContent = `!Bien hecho, ${nombre}! Te sobran ${sueldoFinal.toLocaleString('es-CL')} este mes`;
-        }else if (sueldoFinal <= 0){
+        if (saldoFinal >= 0 ) {
+            div.textContent = `!Bien hecho, ${nombre}! Te sobran ${saldoFinal.toLocaleString('es-CL')} este mes`;
+        }else if (saldoFinal <= 0){
             div.textContent = `Cuidado, ${nombre}. Estas sobregastando por ${sueldoMensual.toLocaleString('es-CL')} `;
-        }else if (sueldoFinal <= 0 && sueldoFinal == cien) {
+        }else if (saldoFinal <= 0 && sueldoFinal == cien) {
             div.textContent = `Atención: Tu sueldo es muy bajo`;
         }
 
         div.textContent = `Resumen financiero de ${nombre}:
         Sueldo Mensual: ${sueldoMensual.toLocaleString('es-CL')}
         -Total de gastos: ${valoresIngresados.toLocaleString('es-CL')}
-        -Saldo final: ${sueldoFinal.toLocaleString('es-CL')}`;
+        -Saldo final: ${saldoFinal.toLocaleString('es-CL')}`;
     }
 
 
