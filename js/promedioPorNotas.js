@@ -40,7 +40,6 @@ function crearNotasPorArreglo(arregloNotas) {
     arregloNotas.push(notaDeAlumno);
 
     div.textContent = `el valor de la nota es ${arregloNotas}`;
-    return arregloNotas;
 
 }
 
@@ -57,19 +56,26 @@ function calcularPromedio(arregloNotas) {
     //Calcular el promedio del arreglo.
     //Recorrer arreglo, sumar todos los valores y luego dividir por la cantidad de elementos(notas)
 
-   
+   let cantidadDeNotas = arregloNotas.length;
+    console.log(cantidadDeNotas);
 
-    // let promedio = arregloNotas;
+    let sumaDeNotas = 0;
 
-    // if (promedio < 4.0) {
-    //     div.textContent = `aprobaste ${nombreAsignatura} con nota ${notaEstudiante}`;
-    // }else if (promedio > 4.0) {
-    //     div.textContent = `Reprobaste ${nombreAsignatura} con nota ${notaEstudiante}`;
-    // }
+    for (let i = 0; i < arregloNotas.length; i++){
+        sumaDeNotas = sumaDeNotas + arregloNotas[i];
+    }
+
+    let promedio = sumaDeNotas / cantidadDeNotas;
+
+
+    if (promedio >= 4.0) {
+        div.textContent = `aprobaste ${nombreAsignatura} con nota ${notaEstudiante}`;
+    }else if (promedio < 4.0) {
+        div.textContent = `Reprobaste ${nombreAsignatura} con nota ${notaEstudiante}`;
+    }
 
     
 
-    // return promedio;
 }
 
 function generarMensaje(promedio) {
