@@ -101,7 +101,6 @@ function obtenerSaldoFinal(totalGastos) {
         Sueldo Mensual: ${sueldoMensual.toLocaleString('es-CL')}
         -Total de gastos: ${valoresIngresados.toLocaleString('es-CL')}
         -Saldo final: ${saldoFinal.toLocaleString('es-CL')}`;
-        //otra funcion
     }
 
 
@@ -114,6 +113,9 @@ function listaDinamica(alimentacion,transporte,arriendo,ocio) {
     //se crea una variable llamada li(que es lo que quiero crear)
     let li = document.createElement('li');
 
+    
+
+    
 }
 
 
