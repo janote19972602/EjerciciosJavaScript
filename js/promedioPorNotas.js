@@ -66,16 +66,16 @@ function generarMensaje(promedio) {
 
     let div = obtenerDiv();
 
-
-    
 }
+
+
 
 function obtenerNombreAsignatura() {
 
-    //Se guarda el nombre ingresado a traves del input "inputNombre"
+    //Se guarda el nombre ingresado a traves del input "inputNombreAsignatura"
     //el que se buscó por ID
-    let nombre = document.getElementById('inputNombreAsignatura').value;
-    return nombre;
+    let nombreAsignatura = document.getElementById('inputNombreAsignatura').value;
+    return nombreAsignatura;
     
 }
 
