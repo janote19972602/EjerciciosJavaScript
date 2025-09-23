@@ -26,6 +26,7 @@ function crearNotasPorArreglo() {
 
     //Obtener valores de los inputs
     let notaDeAlumno = obtenerNota();
+    let asignatura = obtenerNombreAsignatura();
 
 
     // En este arreglo se guardaran los valores de los 2 inputs
