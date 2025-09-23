@@ -3,15 +3,19 @@ window.onload = function () {
     let btnCalcularNotas = document.getElementById('btnAgregarNota');
     let btnPromedioFinal = document.getElementById('btnCalcularPromedio');
 
+    //Variables globales: Pueden ser accedidas desde cualquier parte (botón, función, etc)
+    let arregloNotas = [];
+
     btnCalcularNotas.addEventListener('click',function () {
 
-        crearNotasPorArreglo();
+        crearNotasPorArreglo(arregloNotas);
+        console.log(arregloNotas);       
         
     })
 
     btnPromedioFinal.addEventListener('click', function () {
         
-        calcularPromedio()
+        calcularPromedio(arregloNotas);
 
     })
     
@@ -20,7 +24,7 @@ window.onload = function () {
 
 
 //Esta funcion crea las notas ingresadas por el alumno a traves del input
-function crearNotasPorArreglo() {
+function crearNotasPorArreglo(arregloNotas) {
 
     let div = obtenerDiv();
 
@@ -30,19 +34,19 @@ function crearNotasPorArreglo() {
 
 
     // En este arreglo se guardaran los valores de los 2 inputs
-    let arregloNotasIngresadas = [];
+    // let arregloNotasIngresadas = [];
 
     //Agregar al arreglo "datosIngresados" los datos
-    arregloNotasIngresadas.push(notaDeAlumno);
+    arregloNotas.push(notaDeAlumno);
 
-    div.textContent = `el valor de la nota es ${arregloNotasIngresadas}`;
-    return arregloNotasIngresadas;
+    div.textContent = `el valor de la nota es ${arregloNotas}`;
+    return arregloNotas;
 
 }
 
 
 
-function calcularPromedio(arregloNotasIngresadas) {
+function calcularPromedio(arregloNotas) {
 
     let div = obtenerDiv();
 
@@ -50,17 +54,22 @@ function calcularPromedio(arregloNotasIngresadas) {
     let nombreAsignatura = obtenerNombreAsignatura();
     let notaEstudiante = obtenerNota();
 
-    let promedio = arregloNotasIngresadas;
+    //Calcular el promedio del arreglo.
+    //Recorrer arreglo, sumar todos los valores y luego dividir por la cantidad de elementos(notas)
 
-    if (promedio < 4.0) {
-        div.textContent = `aprobaste ${nombreAsignatura} con nota ${notaEstudiante}`;
-    }else if (promedio > 4.0) {
-        div.textContent = `Reprobaste ${nombreAsignatura} con nota ${notaEstudiante}`;
-    }
+   
+
+    // let promedio = arregloNotas;
+
+    // if (promedio < 4.0) {
+    //     div.textContent = `aprobaste ${nombreAsignatura} con nota ${notaEstudiante}`;
+    // }else if (promedio > 4.0) {
+    //     div.textContent = `Reprobaste ${nombreAsignatura} con nota ${notaEstudiante}`;
+    // }
 
     
 
-    return promedio;
+    // return promedio;
 }
 
 function generarMensaje(promedio) {
