@@ -42,8 +42,7 @@ function crearHistorialUsuarios(nombre,edad,categoria) {
 
     //al ol el cual es uno solo, le agrego los li(las filas)
     ol.appendChild(li);
-
-
+    
 }
 
 

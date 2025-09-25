@@ -1,33 +1,38 @@
 window.onload = function () {
 
-    let NombreProducto = document.getElementById('btnAgregarProducto');
+    let btnAgregarProducto = document.getElementById('btnAgregarProducto');
     let PrecioProducto = document.getElementById('btnCalcularTotal');
     let VerificarPresupuesto = document.getElementById('btnVerificarPresupuesto');
 
-    
+    //Variables globales: Pueden ser accedidas desde cualquier parte (botón, función, etc)
+    let arregloDeComprasSuper = [];
 
 
-    NombreProducto.addEventListener('click', function () {
+    btnAgregarProducto.addEventListener('click', function () {
 
-        obtenerDatosProductoMeterEnArreglo();
+        obtenerDatosProductoMeterEnArreglo(arregloDeComprasSuper);
         //console.log(arregloDeComprasSuper);
         
     })
 
     PrecioProducto.addEventListener('click', function () {
 
-        //calcularTotalPrecios();
+        let sumaTotal = calcularTotalPrecios(arregloDeComprasSuper);
+        console.log(sumaTotal);
+        
     })
 
     VerificarPresupuesto.addEventListener('click', function () {
-        
+
+        let totalDeLaCompra = calcularTotalPrecios(arregloDeComprasSuper);
+
     })
     
 }
 
 //SE OBTIENE POR EL ID LOS VALORES DE LOS INPUT
 //Y SE METEN A UN ARREGLO GLOBAL LLAMADO "arreglosCompraSuper[]"
-function obtenerDatosProductoMeterEnArreglo() {
+function obtenerDatosProductoMeterEnArreglo(arregloDeComprasSuper) {
 
     let h2DelResultado = obtenerResultadoDeCompra();
 
@@ -35,18 +40,18 @@ function obtenerDatosProductoMeterEnArreglo() {
     let nombreProductoSuper = obtenerNombreProducto();
     let precioProductoSuper = obtenerPrecioProducto();
 
-    //Variables globales: Pueden ser accedidas desde cualquier parte (botón, función, etc)
-     let arregloDeComprasSuper = [];
-
+   
     //Agregar al arreglo "nombreProductoSuper" y "precioDelProducto"
     //arregloDeComprasSuper.push(nombreProductoSuper);
     arregloDeComprasSuper.push(precioProductoSuper);
 
-    h2DelResultado.textContent = `el ${nombreProductoSuper} tiene un valor de ${precioProductoSuper}`;
+    h2DelResultado.textContent = h2DelResultado.textContent + `el ${nombreProductoSuper} tiene un valor de ${precioProductoSuper}\n`;
+    //PENDIENTE \
+    
 }
 
 //DEBE RECIBIR COMO PARAMETRO EL ARREGLO PRECIOS
-function calcularTotalPrecios() {
+function calcularTotalPrecios(arregloDeComprasSuper) {
     
     let h2Resultado = obtenerResultadoDeCompra()
 
@@ -64,9 +69,7 @@ function calcularTotalPrecios() {
         sumaDePrecios = sumaDePrecios + arregloDeComprasSuper[i];
     }
 
-    h2Resultado.innerText = `el precio total es ${sumaDePrecios}`;
-
-
+    return sumaDePrecios;
 
 }
 
@@ -91,6 +94,15 @@ function obtenerPrecioProducto() {
     //el que se buscó por ID
     let precioDeProducto = parseFloat(document.getElementById('inputPrecioProducto').value);
     return precioDeProducto;
+    
+}
+
+function obtenerPresupuesto() {
+
+    //Se guarda la nota ingresada a traves del input "inputPrecioProducto"
+    //el que se buscó por ID
+    let presupuestoDisponible = parseFloat(document.getElementById('inputPresupuesto').value);
+    return presupuestoDisponible;
     
 }
 

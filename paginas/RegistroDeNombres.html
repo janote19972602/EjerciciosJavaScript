@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página web</title>
-    <link rel="stylesheet" href="../css/EstilosCarroSupermercado.css">
-    <script type="module" src="../js/carroSupermercado.js"></script>
+    <link rel="stylesheet" href="../css/EstilosRegistroDeNombres.css">
+    <script type="module" src="../js/registroDeNombres.js"></script>
 </head>
 <body>
     <!-- ***********************************************INICIO DEL <HEADER>**********************************************   -->
     <header>
-        <h1 class="persona">Compra de Producto</h1>
+        <h1 class="persona">Registro de Nombres</h1>
     </header>
 <!-- ***************************************************TERMINO DEL <HEADER>**********************************************   -->
 
@@ -18,27 +18,24 @@
     <main>  
           <div class="container">
             <div class="item">
-                <h2>El carrito del supermercado chileno</h2>
+                <h2>Registro de Usuarios</h2>
                 <div class="datos">
                     <div>
-                        <p>Nombre del producto</p>
-                        <input class="inputs" id="inputNombreProducto" type="text"> 
-                    </div>
-                    <div>
-                        <p>Precio del producto</p>
-                        <input class="inputs" id="inputPrecioProducto" type="text">
-                    </div>
-                    <div>
-                        <p>Presupuesto </p>
-                        <input class="inputs" id="inputPresupuesto" type="text">
+                        <p>Nombre de Persona</p>
+                        <input class="inputs" id="inputNombrePersona" type="text"> 
                     </div>
                 </div>
                 <div>
-                    <h2 class="resultado" id="resultadoCompra"></h2>
+                    <h2 class="resultado" id="resultadoUsuario"></h2>
                 </div>
-                <button class="compraDeProducto" id="btnAgregarProducto">Agregar Producto</button>
-                <button class="compraDeProducto" id="btnCalcularTotal">Calcular Total</button>
-                <button class="compraDeProducto" id="btnVerificarPresupuesto">Verificar presupuesto</button>
+                <div>
+                    <ol id="historialUsuarios"></ol>
+                </div>
+
+                <div class="botones">
+                    <button class="Usuarios" id="btnGuardarUsuario">Guardar Usuario</button>
+                    <button class="Usuarios" id="btnMostrarUsuario">Mostrar Usuario</button>
+                </div>
             </div>
         </div>
       
