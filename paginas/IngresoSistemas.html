@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página web</title>
+    <link rel="stylesheet" href="../css/EstilosIngresoSistemas.css">
+    <script type="module" src="../js/ingresoSistemas.js"></script>
+</head>
+<body>
+    <!-- ***********************************************INICIO DEL <HEADER>**********************************************   -->
+    <header>
+        <h1 class="persona">Control de acceso al sistema</h1>
+    </header>
+<!-- ***************************************************TERMINO DEL <HEADER>**********************************************   -->
+
+    <!-- ***********************************************INICIO DEL <MAIN>**********************************************   -->
+    <main>  
+        <div class="container">
+           <div class="item">
+                <h3>Datos de la persona</h3>
+                <div class="datos">
+                    <div class="posicion">
+                        <div>
+                            <p>Nombre</p>
+                            <input class="inputs" id="inputNombrePersona" type="text">
+                        </div>
+                        <div>
+                            <p>Edad</p>
+                            <input class="inputs" id="inputEdadPersona" type="text">
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="resultado" id="resultadoPersonaMayorMenor"></h2>
+                    </div>
+                    <div>
+                        <ol id="mayorMenorPersona"></ol>
+                    </div>
+                </div>
+                <div class="resultados">
+                    <button id="btnVerificarAccesoPersona" class="enviar">Verificar Acceso</button>
+                    <button id="btnMostrarResultadosPersona" class="enviar">Mostrar Resultado</button>
+                    <button class="ingreso" id="boton-refrescar">Refrescar Página</button>
+                </div>
+            </div>
+        </div>
+    </main>
+<!-- ***************************************************TERMINO DEL <MAIN>**********************************************   -->
+
+<!-- ***************************************************INICIO DEL <FOOTER>**********************************************   -->
+    <!-- <footer>
+        <div class="atras">
+            <a href="../index.html" class="btn-volver">Volver</a>
+        </div>
+    </footer> -->
+<!-- ***********************************************FIN DEL FOOTER************************-->
+     <!-- CONTROL + K + CONTROL + C = COMENTAR CODIGO -->
+</body>
+</html>
