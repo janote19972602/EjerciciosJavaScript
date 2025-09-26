@@ -8,18 +8,24 @@ window.onload = function () {
 
     btnGuardarUsuario.addEventListener('click',function () {
 
-        obtenerDatosUsuarioEnArreglo(arregloDeUsuarios);
-        console.log(arregloDeUsuarios);
+        guardarUsuarioEnArreglo(arregloDeUsuarios);
+        //mostrar mensaje usuario guardado
+        alert('Usuario ingresado');
          
     })
 
     btnMostrarUsuario.addEventListener('click', function () {
 
-        let sumaDeUsuarios = obtenerNombreDeUsuarios(arregloDeUsuarios);
-        console.log(sumaDeUsuarios);
+        console.log(arregloDeUsuarios);
 
-        let nombre = obtenerNombreUsuario(arregloDeUsuarios);
-        crearHistorialUsuarios(nombre);
+        
+        for (let i = 0; i < arregloDeUsuarios.length; i++){
+
+            let nombre = arregloDeUsuarios[i];
+            crearHistorialUsuarios(nombre);
+            
+            
+        }
         
     })
 }
@@ -27,20 +33,13 @@ window.onload = function () {
 
 //SE OBTIENE POR EL ID EL VALOR DEL INPUT
 //Y SE METEN A UN ARREGLO GLOBAL LLAMADO "arreglosUsuarios[]"
-function obtenerDatosUsuarioEnArreglo(arregloDeUsuarios) {
-
-    let h2DelResultadoUsuario = obtenerResultadoDeCompra();
+function guardarUsuarioEnArreglo(arregloDeUsuarios) {
 
     //Obtener el valor del input "usuario"
     let nombreDeUsuario = obtenerNombreUsuario();
     
     //Agregar al arreglo "nombreDeUsuario"
-    //arregloDeUsuarios.push(nombreDeUsuario);
-
     arregloDeUsuarios.push(nombreDeUsuario);
-
-    h2DelResultadoUsuario.textContent = `los usuarios son ${arregloDeUsuarios}`;
-
 }
 
 function obtenerNombreDeUsuarios(arregloDeUsuarios) {
