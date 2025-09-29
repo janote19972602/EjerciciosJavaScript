@@ -126,3 +126,16 @@ footer{
     margin-left: 50px;
     margin-top: 8px;
 }
+
+#mayorMenorPersona{
+    list-style-type: none;
+}
+
+/* CREACION DE CLASES QUE SERAN USADAS CON JAVASCRIPT */
+.mayorDeEdad{
+    color: green;
+}
+
+.menorDeEdad{
+    color: red;
+}

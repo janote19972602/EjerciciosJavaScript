@@ -4,6 +4,8 @@ window.onload = function () {
     let btnVerificarPersona = document.getElementById('btnVerificarAccesoPersona');
     let btnMostrarResultadosDePersona = document.getElementById('btnMostrarResultadosPersona');
     let btnResfrescar = document.getElementById('boton-refrescar');
+    let btnCrearObjeto = document.getElementById('btnCrearObjeto');
+
 
     ////Variables globales: Pueden ser accedidas desde cualquier parte (botón, función, etc)
     let mensajes = [];
@@ -18,6 +20,8 @@ window.onload = function () {
 
         //ESTE FOR LO QUE HACE ES QUE RECORRE TODOS LOS NOMBRES Y LOS ALMACENA EN LA VARIABLE
         //LLAMADA "NOMBRE PARA MOSTRARLO EN PANTALLA CON UNA LISTA "OL"
+        console.log(mensajes);
+        
         for (let i = 0; i < mensajes.length; i++) {
             let nombre  = mensajes[i];
             crearHistorialUsuariosIngresados(nombre);
@@ -27,9 +31,36 @@ window.onload = function () {
 
     //Refreca la página web
     btnResfrescar.addEventListener('click', function() {
+
+        console.log(mensajes);
+
+        for (let i = 0; i < mensajes.length; i++) {
+            let objetoPersona = mensajes[i];
+            console.log(objetoPersona);
+
+            crearHistorialUsuariosIngresados(objetoPersona.edad);
+            
+        }
         
-        location.reload();
+        //location.reload();
     })
+
+    btnCrearObjeto.addEventListener('click',function () {
+        
+        let nombre = obtenerNombrePersona();
+        let edad = obtenerEdadPersona();
+        //CREAR OBJETO PERSONA
+
+        const persona = {
+            nombre: nombre,
+            edad: edad
+        };
+
+        mensajes.push(persona);
+
+    })
+
+    
 
 }
 
@@ -45,13 +76,23 @@ function determinarPersonaMayorDeEdad(mensajes) {
 
     //CON UNA CONDICIONAL IF-ELSE SE ENCARGA DE EVALUAR LA EDAD DE LA PERSONA
     //E INMEDIATAMENTE HACE UN PUSH CONCATENANDOLE EL MENSAJE CON EL NOMBRE
-    if (edad >= 18) {
-        mensajes.push(`${nombre} es mayor de edad, puede ingresar al sistema`);
-    }else if (edad < 18){
-        mensajes.push(`${nombre} es menor de edad, no puede ingresar al sistema`);
-    }
 
-    obtenerResultado.innerHTML = obtenerResultado.innerHTML + '<br>' + mensajes + '<br>';
+    let mensaje = '';
+    if (edad >= 18) {
+        mensaje = `${nombre} es mayor de edad, puede ingresar al sistema`;
+        obtenerResultado.classList.add('mayorDeEdad');
+       // mensajes.push(`${nombre} es mayor de edad, puede ingresar al sistema`);
+       // obtenerResultado.innerHTML =`${nombre} es mayor de edad, puede ingresar al sistema`;
+    }else if (edad < 18){
+        mensaje = `${nombre} es menor de edad, no puede ingresar al sistema`;
+        obtenerResultado.classList.add('menorDeEdad');
+        // mensajes.push(`${nombre} es menor de edad, no puede ingresar al sistema`);
+        // obtenerResultado.innerHTML =`${nombre} es menor de edad, no puede ingresar al sistema`;
+    }
+    mensajes.push(mensaje);
+    obtenerResultado.innerHTML = mensaje;
+
+    
 
 }
 
