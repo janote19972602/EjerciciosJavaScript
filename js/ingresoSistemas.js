@@ -36,7 +36,6 @@ window.onload = function () {
 
         for (let i = 0; i < mensajes.length; i++) {
             let objetoPersona = mensajes[i];
-            console.log(objetoPersona);
 
             crearHistorialUsuariosIngresados(objetoPersona.edad);
             

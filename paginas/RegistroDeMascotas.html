@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página web</title>
+    <link rel="stylesheet" href="../css/EstilosMascotas.css">
+    <script type="module" src="../js/registroMascotas.js"></script>
+</head>
+<body>
+    <!-- ***********************************************INICIO DEL <HEADER>**********************************************   -->
+    <header>
+        <h1 class="persona">Registro de Mascotas</h1>
+    </header>
+<!-- ***************************************************TERMINO DEL <HEADER>**********************************************   -->
+
+    <!-- ***********************************************INICIO DEL <MAIN>**********************************************   -->
+    <main>  
+          <div class="container">
+            <div class="item">
+                <h2>Registro de Mascotas</h2>
+                <div class="datos">
+                    <div>
+                        <p>Nombre del animal:</p>
+                        <input class="inputs" id="inputNombreAnimal" type="text"> 
+                    </div>
+                    <div>
+                        <p>Tipo del animal:</p>
+                        <input class="inputs" id="inputTipoAnimal" type="text">
+                    </div>
+                    <div>
+                        <p>Edad de mascota:</p>
+                        <input class="inputs" id="inputEdadAnimal" type="text">
+                    </div>
+                    <div>
+                        <p>Color de mascota:</p>
+                        <input class="inputs" id="inputColorAnimal" type="text">
+                    </div>
+                </div>
+
+                <div class="divResultadoMascotas">
+                    <div>
+                        <h2 class="resultadoMascota" id="resultadoMascota"></h2>
+                    </div>
+                    <div>
+                        <ol id="mascota"></ol>
+                    </div>
+                </div>
+                
+                <div class="botonesMascotas">
+                    <button class="mascotas" id="btnAgregarMascota">Agregar Mascota</button>
+                    <button class="mascotas" id="btnMostrarMascota">Mostrar Mascotas</button>
+                </div>
+            </div>
+            
+        </div>
+      
+    </main>
+<!-- ***************************************************TERMINO DEL <MAIN>**********************************************   -->
+
+<!-- ***************************************************INICIO DEL <FOOTER>**********************************************   -->
+    <footer>
+        <div class="atras">
+            <a href="../index.html"" class="btn-volver">Volver</a>
+        </div>
+    </footer>
+<!-- ***********************************************FIN DEL FOOTER************************-->
+     <!-- CONTROL + K + CONTROL + C = COMENTAR CODIGO -->
+</body>
+</html>
