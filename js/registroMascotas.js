@@ -4,17 +4,17 @@ window.onload = function () {
     let btnAgregarMascotas = document.getElementById('btnAgregarMascota');
     let btnMostrarMascota = document.getElementById('btnMostrarMascota');
     let btnCalcularEstadistica = document.getElementById('btnCalcularEstadisticas');
+    let btnCalcularEstadisticaPorTipo = document.getElementById('btnCalcularEstadisticasPorTipo');
 
     ////Variables globales: Pueden ser accedidas desde cualquier parte (botón, función, etc)
     let mascotasArreglo = [];
 
     btnAgregarMascotas.addEventListener('click',function () {
+
         capturarYcrearObjetoMascota(mascotasArreglo);
         limpiarInputs();
         let h2 = obtenerResultadoH2Mascota();
         h2.textContent = 'Mascota ingresada correctamente';
-
-
         console.log(mascotasArreglo);
         
     })
@@ -31,11 +31,22 @@ window.onload = function () {
         //realizarCalculoDeMascotas(mascotasArreglo);
         calculoTotalDeMascotas(mascotasArreglo);
         console.log("entro");
-
-        
     })
 
 
+    //Estudiar el botón y su función genérica:
+    btnCalcularEstadisticaPorTipo.addEventListener('click', function () {
+
+        //Obtener el valor seleccionado por el usuario en el Select
+        //1. Ir a buscar el Select por Id
+        const select = document.getElementById('tiposMascotas');
+        const tipo = select.value;
+
+        console.log(tipo);        
+        
+        calculoTotalDeMascotasTEST(mascotasArreglo, tipo);
+        
+    })
 
 }
 
@@ -81,7 +92,7 @@ window.onload = function () {
     
 // }
 
-   
+
 
 
 
@@ -96,17 +107,13 @@ function calculoTotalDeMascotas(mascotasArreglo) {
     let cantidadDeGatos = 0;
     
 
-    for (let i = 0; i < mascotasArreglo.length; i++) {
-        
+    for (let i = 0; i < mascotasArreglo.length; i++) {        
         
         let mascotas = mascotasArreglo[i];
-        mascotas.tipo;
-        console.log(mascotas);
 
         if (mascotas.tipo === "perro" || mascotas.tipo === "Perro" || mascotas.tipo === "perra" || mascotas.tipo === "Perra") {
             cantidadDePerros++;
-            console.log("hola");
-            
+                        
         }else if (mascotas.tipo === "gato" || mascotas.tipo === "Gato" || mascotas.tipo === "gata" || mascotas.tipo === "Gata") {
             cantidadDeGatos++;
         }
@@ -117,6 +124,43 @@ function calculoTotalDeMascotas(mascotasArreglo) {
     
 }
 
+//Función genérica: hace lo mismo para distintos tipos de datos
+function calculoTotalDeMascotasTEST(mascotasArreglo, tipo) {
+
+    let resultadoH2 = obtenerResultadoH2Mascota();  
+
+    // let tipo = '';   
+    let contador = 0;
+
+    for (let i = 0; i < mascotasArreglo.length; i++) {        
+        
+        let mascota = mascotasArreglo[i];
+        
+        // tipo = 'lagartija';
+
+        contador = contarSegunTipoMascota(mascota, tipo, contador);  
+        
+    }
+
+    resultadoH2.textContent = `cantidad total de ${tipo}: ${contador}`;
+    // resultadoH2.textContent = `cantidad total de perros:${cantidadDePerros} y la cantidad de gatos: ${cantidadDeGatos}`;
+    //console.log(cantidadDePerros);    
+}
+
+function contarSegunTipoMascota(mascota, tipo, contador){  
+
+    //Para poder comparar textos que son iguales, pero escritos con Mayussculas o minusculas, se deben transformar ambos a Mayúsculas.
+    //Asi JS los puede comparar
+
+    if (mascota.tipo.toUpperCase() === tipo.toUpperCase()) {
+        console.log('Propiedad del objeto: ' + mascota.tipo.toUpperCase());
+        console.log('Tipo: ' + tipo.toUpperCase());
+        
+        contador++;
+    }
+
+    return contador;
+}
 
 function verificarPerroGato(mascotasArreglo) {
 
