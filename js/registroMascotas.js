@@ -3,6 +3,7 @@ window.onload = function () {
     //EN VARIABLES SE ALMACENARAN LOS BOTONES QUE DESPUES SE OCUPARAN
     let btnAgregarMascotas = document.getElementById('btnAgregarMascota');
     let btnMostrarMascota = document.getElementById('btnMostrarMascota');
+    let btnCalcularEstadistica = document.getElementById('btnCalcularEstadisticas');
 
     ////Variables globales: Pueden ser accedidas desde cualquier parte (botón, función, etc)
     let mascotasArreglo = [];
@@ -24,7 +25,44 @@ window.onload = function () {
         
     })
 
+    btnCalcularEstadistica.addEventListener('click', function () {
+
+        verificarPerroGato();
+        
+        
+    })
+
     
+    
+}
+
+
+function verificarPerroGato(mascotasArreglo) {
+
+    
+    let cantidad = obtenerResultadoH2Mascota();
+
+    let cantidadPerros = 0; //se inicializa el contador en 0
+
+    //repetimos sobre cada mascota en el arreglo
+
+    for (let i = 0; i < mascotasArreglo.length; i++) {
+        let mascotaActual = mascotasArreglo[i];
+
+        if (mascotaActual.tipo === "perro") {
+            cantidad.textContent = `esta mascota se llama ${mascotaActual.nombre} y es un perro`;
+            cantidadPerros++;
+        }else if (mascotaActual.tipo === "gato") {
+            cantidad.textContent = `esta mascota es un ${mascotaActual.nombre} y es un gato`;
+        }
+
+        cantidad.textContent = `en total hay ${cantidadPerros} en la lista`;
+
+
+        
+    }
+
+
     
 }
 
@@ -40,12 +78,6 @@ function mostrarDatosMascota(mascotasArreglo) {
         crearHistorialDeMascotasIngresadas(objetoMascota.nombre,objetoMascota.edad,objetoMascota.tipo,objetoMascota.color); 
     }
 
-    
-
-
-    
-
-    
 }
 
 function limpiarInputs() {
