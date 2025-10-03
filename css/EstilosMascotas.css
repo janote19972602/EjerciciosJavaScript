@@ -6,7 +6,7 @@
 }
 
 header{
-    height: 200px;
+    height: 150px;
     background-color: rgb(149, 215, 241);
     display: flex;
     justify-content: space-around;
@@ -20,6 +20,8 @@ header{
 body{
     background-color: burlywood;
 }
+
+
 
 .container{
     display: flex;
@@ -41,7 +43,19 @@ body{
     display: flex;
     flex-direction: column;
     gap: 50px;
-    text-align: left;
+    text-align: start;
+}
+
+.primeraParte{
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+}
+
+.segundaParte{
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
 }
 
 .datos .inputs{
@@ -68,6 +82,25 @@ footer{
     margin-top: 50px;
 }
 
+.botonesMascotas{
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.itemUno{
+    display: flex;
+    flex-direction: row;
+}
+
+.itemDos{
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+
 .mascotas{
     padding: 15px 23px;
     background-color:rgb(22, 117, 79);
@@ -78,6 +111,19 @@ footer{
     width: 150px;
     margin-left: 50px;
 }
+
+.refrescar{
+    padding: 15px 23px;
+    background-color:rgb(35, 63, 185);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 150px;
+    margin-left: 50px;
+}
+
+
 
 .btn-volver{
     padding: 15px 23px;
@@ -102,6 +148,20 @@ footer{
     display: flex;
     flex-direction: column;
     gap: 60px;
+}
+
+#mascota{
+    list-style-type: none;
+}
+
+#tiposMascotas{
+    width: 70px;
+    margin-left: 80px;
+}
+
+.boton{
+    display: flex;
+    flex-direction: column;
 }
 
 

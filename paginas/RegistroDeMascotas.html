@@ -20,21 +20,25 @@
             <div class="item">
                 <h2>Registro de Mascotas</h2>
                 <div class="datos">
-                    <div>
-                        <p>Nombre del animal:</p>
-                        <input class="inputs" id="inputNombreAnimal" type="text"> 
+                    <div class="primeraParte">
+                        <div>
+                            <p>Nombre del animal:</p>
+                            <input class="inputs" id="inputNombreAnimal" type="text">
+                        </div>
+                        <div>
+                            <p>Tipo del animal:</p>
+                            <input class="inputs" id="inputTipoAnimal" type="text">
+                        </div>
                     </div>
-                    <div>
-                        <p>Tipo del animal:</p>                       
-                        <input class="inputs" id="inputTipoAnimal" type="text">
-                    </div>
-                    <div>
-                        <p>Edad de mascota:</p>
-                        <input class="inputs" id="inputEdadAnimal" type="text">
-                    </div>
-                    <div>
-                        <p>Color de mascota:</p>
-                        <input class="inputs" id="inputColorAnimal" type="text">
+                    <div class="segundaParte">
+                        <div>
+                            <p>Edad de mascota:</p>
+                            <input class="inputs" id="inputEdadAnimal" type="text">
+                        </div>
+                        <div>
+                            <p>Color de mascota:</p>
+                            <input class="inputs" id="inputColorAnimal" type="text">
+                        </div>
                     </div>
                 </div>
 
@@ -43,22 +47,41 @@
                         <h2 class="resultadoMascota" id="resultadoMascota"></h2>
                     </div>
                     <div>
+                        <p>Mascotas que tengan mas de 5 letras</p>
                         <ol id="mascota"></ol>
                     </div>
                 </div>
                 
                 <div class="botonesMascotas">
-                    <button class="mascotas" id="btnAgregarMascota">Agregar Mascota</button>
-                    <button class="mascotas" id="btnMostrarMascota">Mostrar Mascotas</button>
-                    <button class="mascotas" id="btnCalcularEstadisticas">Calcular Estadísticas</button>
-                    <button class="mascotas" id="btnCalcularEstadisticasPorTipo">Calcular Estadísticas por Tipo</button>
-                    <select name="" id="tiposMascotas">
-                            <option value="Perro">Perro</option>
-                            <option value="Gato">Gato</option>
-                            <option value="Conejo">Conejo</option>
-                    </select>
-                    
+                    <div class="itemUno">
+                       
+                        <button class="mascotas" id="btnAgregarMascota">Agregar Mascota</button>
+                        <button class="mascotas" id="btnMostrarMascota">Mostrar Mascotas</button>
+                        <button class="mascotas" id="btnCalcularEstadisticas">Calcular Estadísticas</button>
+                    </div>
+                    <div class="itemDos">
+                        <button class="mascotas" id="btnFiltrarPorMayoresDeEdad">Filtrar mayores de edad</button>
+                        <button class="mascotas" id="btnCalcularEstadisticasPorTipo">Calcular Estadísticas por Tipo</button>
+                        <button class="refrescar" id="boton-refrescar">Refrescar Página</button>
+                        <button class="mascotas" id="btnMostrarColorPorBoton">Mostrar por Color</button>
+                        <button class="mascotas" id="btnMostraNombresLargos">Mostrar nombres largos</button>
+                         <select name="" id="tiposMascotas">
+                                    <option value="Perro">Perro</option>
+                                    <option value="Gato">Gato</option>
+                                    <option value="Conejo">Conejo</option>
+                        </select>
+
+                            <div class="boton">
+                                <p>Buscar por color</p>
+                                <input class="inputs" id="inputColorMascota" type="text">
+                            </div>
+                        
+                    </div>
+
                 </div>
+                
+                        
+                    
             </div>
             
         </div>

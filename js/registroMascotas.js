@@ -5,6 +5,10 @@ window.onload = function () {
     let btnMostrarMascota = document.getElementById('btnMostrarMascota');
     let btnCalcularEstadistica = document.getElementById('btnCalcularEstadisticas');
     let btnCalcularEstadisticaPorTipo = document.getElementById('btnCalcularEstadisticasPorTipo');
+    let btnFiltrarMayoresDeEdad = document.getElementById('btnFiltrarPorMayoresDeEdad');
+    let btnRefrescarPagina = document.getElementById('boton-refrescar');
+    let btnMostrarMascotaPorColor = document.getElementById('btnMostrarColorPorBoton');
+    let btnNombresLargos = document.getElementById('btnMostraNombresLargos');
 
     ////Variables globales: Pueden ser accedidas desde cualquier parte (botón, función, etc)
     let mascotasArreglo = [];
@@ -48,65 +52,142 @@ window.onload = function () {
         
     })
 
+    btnFiltrarMayoresDeEdad.addEventListener('click', function () {
+
+        verificarMascotasMayoresDeCinco(mascotasArreglo);
+        console.log("hola");
+        //mostrarMascotasMayoresDe5(mascotasArreglo);
+    })
+
+    //Refreca la página web
+    btnRefrescarPagina.addEventListener('click', function() {
+        
+        location.reload();
+    })
+
+    btnMostrarMascotaPorColor.addEventListener('click', function () {
+
+        buscarPorColores(mascotasArreglo);
+        console.log("hol");
+        
+    })
+
+    btnNombresLargos.addEventListener('click', function () {
+
+        mostrarMascotasNombresLargos(mascotasArreglo);
+        console.log("paz");
+        
+    })
+
 }
 
-//     // 2. Inicializa variables para almacenar las edades
-//     let gatoMasJoven = Infinity;
-//     let gatoMasViejo = -Infinity;
-//     let perroMasJoven = Infinity;
-//     let perroMasViejo = -Infinity;
+function mostrarMascotasNombresLargos(mascotasArreglo) {
 
-// function realizarCalculoDeMascotas(mascotasArreglo) {
+    let h2Resultado = obtenerResultadoH2Mascota(mascotasArreglo);
 
-//     let resultadoH2 = obtenerResultadoH2Mascota();
+    //paso 1  Recorrer el arreglo de mascotas
+    for (let i = 0; i < mascotasArreglo.length; i++) {
+        let mascota = mascotasArreglo[i];
 
-//     for (let i = 0; i < mascotasArreglo.length; i++) {
-//         const animal = mascotasArreglo[i]; //Acceder al elemento actual del array
+        // Verificar si el nombre de la mascota tiene más de 5 letras
+        if (mascota.nombre.length >= 5) {
 
-//         if (animal.tipo === "gato" || animal.tipo === "Gato") {
-//             if (animal.edad < gatoMasJoven) {
-//                 gatoMasJoven = animal.edad;
-//             }
-//             if (animal.edad > gatoMasViejo) {
-//                 gatoMasViejo = animal.edad;
-//             }
-//             else if (animal.tipo === "perro" || animal.tipo === "Perro") {
-//                 if (animal.edad < perroMasJoven) {
-//                     perroMasJoven = animal.edad;
-//                 }
-//                 if (animal.edad > perroMasViejo) {
-//                     perroMasViejo = animal.edad;
-//                 }
-//             }
-//         }
+            //se va a buscvar por id <ol>
+            let ol = document.getElementById('mascota');
+
+            //se crea una variable llamada li(que es lo que quiero crear)
+            let li = document.createElement('li');
+
+            li.textContent = `${mascota.nombre}`;
+            
+            //al ol el cual es uno solo, le agrego los li(las filas)
+            ol.appendChild(li);
+        }
+    }
+
+    h2Resultado.text = `las mascotas con nombre mayor a 5 letras:`;
+
+
+    
+}
+
+//lo que debe hacer esta funcion es filtrar a los animales menores de 5 años
+// que se ingresen por pantalla (inputTipoDeAnimal)
+//primera opcion para mostrar animales mayores de 5 años
+function verificarMascotasMayoresDeCinco(mascotasArreglo) {
+
+    let resultadoH2 = obtenerResultadoH2Mascota(mascotasArreglo);
+    // Recorremos el arreglo global de mascotas
+    
+    for (let i = 0; i < mascotasArreglo.length; i++) {
+        let mascota = mascotasArreglo[i];
+        console.log("aa");
+    
+         // Condición para verificar si la mascota es mayor o igual a 5 años
+        if (mascota.edad >= 5) {
+            console.log("hollllaaa");
+            
+            //se va a buscvar por id <ol>
+            let ol = document.getElementById('mascota');
+
+            //se crea una variable llamada li(que es lo que quiero crear)
+            let li = document.createElement('li');
+
+            console.log("hhhh");
+            li.textContent = `Mascota:${mascota.nombre} Edad:${mascota.edad}`;
+            
+            //al ol el cual es uno solo, le agrego los li(las filas)
+            ol.appendChild(li);
+        }
+    }
+
+    resultadoH2.textContent = `las mascotas que son mayores de 5 años`;
+    
+}
+
+//en esta funcion se debe preguntar si el valor ingresado de color de mascota
+//ya existe en el input color de animal
+function buscarPorColores(mascotasArreglo) {
+
+    let resultadoH2 = obtenerResultadoH2Mascota(mascotasArreglo);
+    let colorBuscado = buscarPorColor();
+
+
+    // Recorrer el arreglo "mascotasArreglo" con un bucle for
+    for (let i = 0; i < mascotasArreglo.length; i++) {
+
+        let mascotaActual = mascotasArreglo[i];
         
-//     }
+        //comparamos el color de la mascota con el color buscado
+        if (mascotaActual
+            .color === colorBuscado) {
 
-//         console.log(`Gato más joven: ${gatoMasJoven} años`);
-//         console.log(`Gato más viejo: ${gatoMasViejo} años`);
-//         console.log(`Perro más joven: ${perroMasJoven} años`);
-//         console.log(`Perro más viejo: ${perroMasViejo} años`);
+            //se va a buscvar por id <ol>
+            let ol = document.getElementById('mascota');
 
-//         // 5. Llama a la función para analizar los animales
-//         realizarCalculoDeMascotas(mascotasArreglo);
-    
-// }
+            //se crea una variable llamada li(que es lo que quiero crear)
+            let li = document.createElement('li');
 
+            li.textContent = `Mascota:${mascotaActual.nombre} color:${mascotaActual.color}`;
+            
+            //al ol el cual es uno solo, le agrego los li(las filas)
+            ol.appendChild(li);
+        }
 
+    }
+    resultadoH2.textContent = `las mascotas que son de color`;
+}
 
-
-
-function calculoTotalDeMascotas(mascotasArreglo) {
-
-    console.log(mascotasArreglo);
-    
+function calculoTotalDeMascotas(mascotasArreglo) {    
 
     let resultadoH2 = obtenerResultadoH2Mascota();
 
     let cantidadDePerros = 0;
     let cantidadDeGatos = 0;
     
-
+    //lo que hace este for es recorrer todas las mascotas y que si en caso
+    //de que se un perro le sume a la delaracion en 0, lo mismo para
+    //un gato se lo suma 1 al contador
     for (let i = 0; i < mascotasArreglo.length; i++) {        
         
         let mascotas = mascotasArreglo[i];
@@ -264,6 +345,15 @@ function obtenerColorAnimal() {
     
 }
 //**************FIN INPUTS MASCOTAS******************* */
+
+
+function buscarPorColor() {
+
+    let obtenerColorAnimales = document.getElementById('inputColorMascota').value;
+    return obtenerColorAnimales;
+    
+}
+
 
 //************************************************************* */
 
