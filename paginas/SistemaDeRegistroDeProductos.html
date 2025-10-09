@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página web</title>
+    <link rel="stylesheet" href="../css/EstliosSistemaDeRegistroDeProductos.css">
+    <script type="module" src="../js/sistemaDeRegistroDeProductos.js"></script>
+</head>
+<body>
+    <!-- ***********************************************INICIO DEL <HEADER>**********************************************   -->
+    <header>
+        <h1 class="persona">Sistema de Registro de Producto</h1>
+    </header>
+<!-- ***************************************************TERMINO DEL <HEADER>**********************************************   -->
+
+    <!-- ***********************************************INICIO DEL <MAIN>**********************************************   -->
+    <main>  
+
+          <div class="container">
+            <div class="item">
+                <h2>Sistema de Registro de Productos</h2>
+                <div class="datos">
+                    <div class="itemUno">
+                        <div>
+                            <p>Nombre del producto:</p>
+                            <input class="inputs" id="nombreProducto" type="text">
+                        </div>
+                        <div>
+                            <p>Descripción del producto:</p>
+                            <input class="inputs" id="descripcionProducto" type="text">
+                        </div>
+                        <div>
+                            <p>Precio del producto:</p>
+                            <input class="inputs" id="precioProducto" type="text">
+                        </div>
+                    </div>
+                    <div class="itemDos">
+                        <div>
+                            <p>Cantidad en Stock</p>
+                            <input class="inputs" id="cantidadProductoStock" type="text">
+                        </div>
+                        <div>
+                            <p>Categorias:</p>
+                            <select id="tiposCategorias">
+                                <option value="">Selecciona una categoría</option>
+                                <option value="Ropa">Ropa</option>
+                                <option value="Calzado">Calzado</option>
+                                <option value="Accesorios">Accesorios</option>
+                                <option value="Juguetes">Juguetes</option>
+                                <option value="Electronica">Electronica</option>
+                                <option value="Hogar">Hogar</option>
+                                <option value="Deportes">Deportes</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <ol id="productosRespuesta"></ol>
+                <div>
+                    <h2 class="resultadoCompra" id="resultadoCompraProducto"></h2>
+                </div>
+                <div class="botones">
+                    <button class="compraDeProducto" id="btnAgregarProducto">Agregar Producto</button>
+                    <button class="compraDeProducto" id="btnMostrarProducto">Mostrar Producto </button>
+                    <button class="compraDeProducto" id="boton-refrescar">Refrescar Página</button>
+
+                </div>
+
+            </div>
+            
+        </div>
+      
+    </main>
+<!-- ***************************************************TERMINO DEL <MAIN>**********************************************   -->
+
+<!-- ***************************************************INICIO DEL <FOOTER>**********************************************   -->
+    <footer>
+        <div class="atras">
+            <a href="../index.html" class="btn-volver">Volver</a>
+        </div>
+    </footer>
+<!-- ***********************************************FIN DEL FOOTER************************-->
+     <!-- CONTROL + K + CONTROL + C = COMENTAR CODIGO -->
+</body>
+</html>

@@ -98,7 +98,7 @@ function mostrarMascotasNombresLargos(mascotasArreglo) {
             //se crea una variable llamada li(que es lo que quiero crear)
             let li = document.createElement('li');
 
-            li.textContent = `${mascota.nombre}`;
+            li.textContent = `${mascota.nombre}  `;
             
             //al ol el cual es uno solo, le agrego los li(las filas)
             ol.appendChild(li);
