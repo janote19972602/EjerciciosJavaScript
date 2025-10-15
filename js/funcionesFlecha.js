@@ -9,6 +9,11 @@ window.onload = function () {
     let ejercicio7 = document.getElementById('btnEjercicioSiete');
     let ejercicio8 = document.getElementById('btnEjercicioOcho');
     let ejercicio9 = document.getElementById('btnEjercicioNueve');
+    let ejercicio10 = document.getElementById('btnEjercicioDiez');
+    let ejercicio11 = document.getElementById('btnEjercicioOnce');
+    let ejercicio12 = document.getElementById('btnEjercicioDoce');
+    let ejercicio13 = document.getElementById('btnEjercicioTrece');
+    let ejercicio14 = document.getElementById('btnEjercicioCatorce');
     let btnResfrescar = document.getElementById('boton-refrescar');
 
     btnResfrescar.addEventListener('click',function () {
@@ -68,8 +73,35 @@ window.onload = function () {
         mostrarTotalPrecios();
     })
 
+    ejercicio10.addEventListener('click', function () {
 
+        mostrarProductosDescuento();
+        
+    })
 
+    ejercicio11.addEventListener('click', function () {
+
+        clasificarNotasAlumnos();
+        
+    })
+
+    ejercicio12.addEventListener('click', function () {
+
+        calculoPromedioDeEdades();
+
+    })
+
+    ejercicio13.addEventListener('click', function () {
+
+        llamarFuncionConParametrosForEach();
+
+    })
+
+    ejercicio14.addEventListener('click', function () {
+
+        filtrarSueldosAltos();
+
+    })
     
 }
 
@@ -254,10 +286,121 @@ function mostrarTotalPrecios() {
     //se muestra en consola el total de la suma de precios
     console.log(`El total de los precios ${precios} es: ${total}`);
     
-    
 }
 
 
+//EJERCICIO NUMERO 10
+//Crea un arreglo de objetos llamado productos
+// donde cada objeto tenga un nombre y un precio
+
+function mostrarProductosDescuento() {
+
+    //1. Se define el arreglo de objetos con 3 propiedades:valor
+    const productos = [
+        {nombre:'Pantalón', valor: 15000},
+        {nombre: 'Polera', valor: 13000},
+        {nombre: 'Jeans', valor: 26700}
+    ];
+
+    //2. recorrerr el arreglo con el foreach y funciones flecha
+
+    productos.forEach(producto => {
+        let descuentoProducto = producto.valor * 0.9;
+        console.log(`El producto ${producto.nombre} - tiene un descuento de: ${descuentoProducto}`);
+         
+    })
+    
+}
+
+//Ejercicio 11
+function clasificarNotasAlumnos() {
+
+    //1 definimos un arreglo de notas 
+    const notasAlumno = [5.9, 4.8,7.0, 2.8, 2.6,5.9];
+
+    //2 Evaluamos al alumno con un if dentro del 
+    // foreach y funcion flecha
+
+    notasAlumno.forEach(notas => {
+        if (notas >= 4.0) {
+            console.log(`La nota ${notas} fue aprobado`);
+        }else{
+            console.log(`La nota ${notas} es: Reprobado`);
+        }
+    });    
+}
+
+//Ejercicio 12
+function calculoPromedioDeEdades() {
+
+    //se declaran 2 cosas, un arreglo con 4 valores
+    // y un let inicializado en 0
+    const edades = [18,34,32,40];
+    let sumaEdades = 0;
+
+    //2 se usa foreach con funcion flecha para acumular las edades
+    //se usa un foreach en el arreglo de edades con una funcion
+    //flecha
+
+    edades.forEach(edad => {
+        sumaEdades += edad;
+    })
+
+    //3 calculamos el promedio dividiendo la suma total entre
+    //el numero de los valores del arreglo para asi lograr
+    //obtener el promedio
+
+    const promedio = sumaEdades / edades.length;
+
+    //4 se imprime en consola
+    console.log(`El promedio de las edades es: ${promedio}`);
+       
+}
+
+//ejercicio 13
+function llamarFuncionConParametrosForEach() {
+
+    //1 creamos la funcion flecha con 2 parametros edad y nombre
+    const mostrarPersona = (nombre, edad) => {
+        console.log(`persona ${nombre}, Edad ${edad}`);
+        
+    }
+
+    //2 definimos una const que muestre a la persona en un objeto
+    const personas = [
+        {nombre: 'Fabiola',edad: 25},
+        {nombre: 'Andrea', edad: 40},
+        {nombre: 'Pedro', edad: 38}
+    ];
+
+    //3 usamos el Foreach para llamar al arreglo y llamar a la funcion
+    //con sus 2 parametros de cada objeto
+    personas.forEach(datoPersona => {
+        mostrarPersona(datoPersona.nombre, datoPersona.edad);
+    })
+
+}
+
+//ejercicio 14
+function filtrarSueldosAltos() {
+    
+    //1 creamos el arreglo de objetos de los empleados
+    const trabajadores = [
+        {nombre:'Carlos', salario: 470000},
+        {nombre: 'Laura', salario: 560000},
+        {nombre: 'Tatiana', salario: 300600},
+        {nombre: 'Agustin', salario: 700600}
+    ];
+
+    //2 usamos el foreach para filtrar y mostrar los datos de
+    //cada trabajador. Se va a verificar con la funcion flecha
+    //la condicion que se pide, salario mayor a 500mil
+    trabajadores.forEach(empleado => {
+        if (empleado.salario >= 500000) {
+            console.log(`Te va super cool! sigue así: ${empleado.nombre}`);
+        }
+    });
+}
 
 
 
